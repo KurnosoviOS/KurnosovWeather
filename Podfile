@@ -7,6 +7,12 @@ workspace 'KurnosovWeather.xcworkspace'
 
 target 'KurnosovWeather' do
     project 'KurnosovWeather.xcodeproj'
-		pod 'RxSwift', '~> 5'
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'
+end
+
+target 'KurnosovWeatherTests' do
+    project 'KurnosovWeather.xcodeproj'
+    pod 'RxSwift', '~> 5'
     pod 'RxCocoa', '~> 5'
 end

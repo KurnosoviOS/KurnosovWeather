@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		84BE3B4823F59D690063F1E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BE3B4623F59D690063F1E4 /* LaunchScreen.storyboard */; };
 		84BE3B5323F59D690063F1E4 /* KurnosovWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3B5223F59D690063F1E4 /* KurnosovWeatherTests.swift */; };
 		84BE3B5E23F59D690063F1E4 /* KurnosovWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3B5D23F59D690063F1E4 /* KurnosovWeatherUITests.swift */; };
+		84BE3B6D23F5B4510063F1E4 /* WeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3B6C23F5B4510063F1E4 /* WeatherLoader.swift */; };
+		A137FBA3ACD07691C6E8E234 /* Pods_KurnosovWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C298D1E11FE23FC4653917C /* Pods_KurnosovWeather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02499947B661016AA8D210E7 /* Pods-KurnosovWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurnosovWeather.debug.xcconfig"; path = "Target Support Files/Pods-KurnosovWeather/Pods-KurnosovWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		4C298D1E11FE23FC4653917C /* Pods_KurnosovWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KurnosovWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE3B3823F59D650063F1E4 /* KurnosovWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KurnosovWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE3B3B23F59D650063F1E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BE3B3D23F59D650063F1E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		84BE3B5923F59D690063F1E4 /* KurnosovWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurnosovWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE3B5D23F59D690063F1E4 /* KurnosovWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurnosovWeatherUITests.swift; sourceTree = "<group>"; };
 		84BE3B5F23F59D690063F1E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BE3B6C23F5B4510063F1E4 /* WeatherLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoader.swift; sourceTree = "<group>"; };
+		97947AAB7ADC8A2F3E82F86B /* Pods-KurnosovWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KurnosovWeather.release.xcconfig"; path = "Target Support Files/Pods-KurnosovWeather/Pods-KurnosovWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A137FBA3ACD07691C6E8E234 /* Pods_KurnosovWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		326C3AF8BA676DFA37C7AD19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02499947B661016AA8D210E7 /* Pods-KurnosovWeather.debug.xcconfig */,
+				97947AAB7ADC8A2F3E82F86B /* Pods-KurnosovWeather.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		84BE3B2F23F59D640063F1E4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +99,8 @@
 				84BE3B5123F59D690063F1E4 /* KurnosovWeatherTests */,
 				84BE3B5C23F59D690063F1E4 /* KurnosovWeatherUITests */,
 				84BE3B3923F59D650063F1E4 /* Products */,
+				326C3AF8BA676DFA37C7AD19 /* Pods */,
+				FFBACAE32708959330DB110A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +117,7 @@
 		84BE3B3A23F59D650063F1E4 /* KurnosovWeather */ = {
 			isa = PBXGroup;
 			children = (
+				84BE3B6B23F5B3EF0063F1E4 /* WeatherLoader */,
 				84BE3B3B23F59D650063F1E4 /* AppDelegate.swift */,
 				84BE3B3D23F59D650063F1E4 /* SceneDelegate.swift */,
 				84BE3B3F23F59D650063F1E4 /* ViewController.swift */,
@@ -128,6 +147,22 @@
 			path = KurnosovWeatherUITests;
 			sourceTree = "<group>";
 		};
+		84BE3B6B23F5B3EF0063F1E4 /* WeatherLoader */ = {
+			isa = PBXGroup;
+			children = (
+				84BE3B6C23F5B4510063F1E4 /* WeatherLoader.swift */,
+			);
+			path = WeatherLoader;
+			sourceTree = "<group>";
+		};
+		FFBACAE32708959330DB110A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C298D1E11FE23FC4653917C /* Pods_KurnosovWeather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84BE3B6223F59D690063F1E4 /* Build configuration list for PBXNativeTarget "KurnosovWeather" */;
 			buildPhases = (
+				C97EB3FDCF7D02FE5A80F24C /* [CP] Check Pods Manifest.lock */,
 				84BE3B3423F59D640063F1E4 /* Sources */,
 				84BE3B3523F59D640063F1E4 /* Frameworks */,
 				84BE3B3623F59D640063F1E4 /* Resources */,
+				9EFCCF307DCE7EF3EEC5169D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,12 +291,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9EFCCF307DCE7EF3EEC5169D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KurnosovWeather/Pods-KurnosovWeather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KurnosovWeather/Pods-KurnosovWeather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KurnosovWeather/Pods-KurnosovWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C97EB3FDCF7D02FE5A80F24C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KurnosovWeather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84BE3B3423F59D640063F1E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				84BE3B4023F59D650063F1E4 /* ViewController.swift in Sources */,
+				84BE3B6D23F5B4510063F1E4 /* WeatherLoader.swift in Sources */,
 				84BE3B3C23F59D650063F1E4 /* AppDelegate.swift in Sources */,
 				84BE3B3E23F59D650063F1E4 /* SceneDelegate.swift in Sources */,
 			);
@@ -432,11 +512,13 @@
 		};
 		84BE3B6323F59D690063F1E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02499947B661016AA8D210E7 /* Pods-KurnosovWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 54E375RTHQ;
 				INFOPLIST_FILE = KurnosovWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,11 +532,13 @@
 		};
 		84BE3B6423F59D690063F1E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97947AAB7ADC8A2F3E82F86B /* Pods-KurnosovWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 54E375RTHQ;
 				INFOPLIST_FILE = KurnosovWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

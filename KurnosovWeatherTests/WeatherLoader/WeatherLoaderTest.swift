@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import KurnosovWeather
+@testable import KurnosovWeather
 import RxSwift
 
 class WeatherLoaderTest: XCTestCase {

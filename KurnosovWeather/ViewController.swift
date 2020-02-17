@@ -9,10 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private var locationLoader: LocationLoader!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationLoader = LocationLoader()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.locationLoader.requestPermission()
+        
+        self.locationLoader.requestCoordinates()
     }
 
 

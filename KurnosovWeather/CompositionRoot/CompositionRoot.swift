@@ -31,7 +31,7 @@ class CompositionRoot {
         locationLoader = LocationLoader()
         #if DEBUG
         #warning ("test")
-        weatherLoader = MockWeatherLoader()
+        weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
         #else
         #error ("test")
         #endif

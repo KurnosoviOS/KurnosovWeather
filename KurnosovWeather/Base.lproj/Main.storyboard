@@ -44,7 +44,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wX1-Xs-cON"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="xxZ-VV-jgW"/>
+                    <tabBarItem key="tabBarItem" title="История" image="historyIco" id="xxZ-VV-jgW"/>
                     <connections>
                         <outlet property="historyTableView" destination="7ST-3U-gAq" id="jDS-5P-QVC"/>
                     </connections>
@@ -61,48 +61,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Город:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gt-kr-Wsn">
-                                <rect key="frame" x="50" y="94" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="Город:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gt-kr-Wsn">
+                                <rect key="frame" x="50" y="94" width="100" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ifP-oo-nvo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXk-Cj-3Ah">
-                                <rect key="frame" x="133" y="115" width="231" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXk-Cj-3Ah">
+                                <rect key="frame" x="180" y="112" width="184" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-GA-FV4">
-                                <rect key="frame" x="186" y="249" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текущая погода:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-GA-FV4">
+                                <rect key="frame" x="94" y="200" width="226" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kp2-Ev-OxJ">
-                                <rect key="frame" x="87" y="278" width="240" height="353"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kp2-Ev-OxJ">
+                                <rect key="frame" x="50" y="246" width="314" height="385"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="385" id="HJj-yR-z6U"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3y8-eI-ViC">
+                                <rect key="frame" x="182" y="142" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ivd-3z-E8m"/>
+                                    <constraint firstAttribute="width" constant="50" id="y4g-Fy-xfx"/>
+                                </constraints>
+                                <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4v-L8-jtF">
+                                <rect key="frame" x="50" y="143" width="133" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Обновить"/>
+                                <connections>
+                                    <action selector="reloadAction:" destination="csX-8Q-TaX" eventType="touchUpInside" id="cgi-Ns-ic9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="baseline" secondItem="KXk-Cj-3Ah" secondAttribute="baseline" id="AId-gG-Pmf"/>
+                            <constraint firstItem="kp2-Ev-OxJ" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="9bP-ce-KNK"/>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="centerY" secondItem="KXk-Cj-3Ah" secondAttribute="centerY" id="AId-gG-Pmf"/>
+                            <constraint firstItem="5dT-HC-3NB" firstAttribute="trailing" secondItem="kp2-Ev-OxJ" secondAttribute="trailing" constant="50" id="LST-U2-Hfg"/>
+                            <constraint firstItem="kp2-Ev-OxJ" firstAttribute="top" secondItem="Bh3-GA-FV4" secondAttribute="bottom" constant="10" id="Ugf-Of-lct"/>
                             <constraint firstItem="1Gt-kr-Wsn" firstAttribute="top" secondItem="5dT-HC-3NB" secondAttribute="top" constant="50" id="VfK-Vy-CNu"/>
+                            <constraint firstItem="KXk-Cj-3Ah" firstAttribute="centerY" secondItem="1Gt-kr-Wsn" secondAttribute="centerY" id="Xfk-fH-ub4"/>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="abE-VU-enW"/>
+                            <constraint firstItem="Bh3-GA-FV4" firstAttribute="top" secondItem="3y8-eI-ViC" secondAttribute="bottom" constant="8" id="dzH-aD-Esf"/>
+                            <constraint firstAttribute="trailing" secondItem="KXk-Cj-3Ah" secondAttribute="trailing" constant="50" id="h0R-pe-Q6F"/>
                             <constraint firstItem="5dT-HC-3NB" firstAttribute="trailing" secondItem="KXk-Cj-3Ah" secondAttribute="trailing" constant="50" id="iZe-DN-py1"/>
+                            <constraint firstItem="Bh3-GA-FV4" firstAttribute="top" secondItem="1Gt-kr-Wsn" secondAttribute="bottom" constant="70" id="loc-49-dn7"/>
+                            <constraint firstItem="x4v-L8-jtF" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="mHp-8b-vcJ"/>
                             <constraint firstItem="KXk-Cj-3Ah" firstAttribute="leading" secondItem="1Gt-kr-Wsn" secondAttribute="trailing" constant="30" id="qMa-ew-RO5"/>
                             <constraint firstItem="1Gt-kr-Wsn" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="rkN-SD-DO2"/>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="top" secondItem="5dT-HC-3NB" secondAttribute="top" constant="50" id="rvS-fV-ocO"/>
+                            <constraint firstItem="Bh3-GA-FV4" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="94" id="vsL-SL-a2l"/>
+                            <constraint firstItem="3y8-eI-ViC" firstAttribute="leading" secondItem="x4v-L8-jtF" secondAttribute="trailing" constant="-1" id="zLF-HL-phw"/>
+                            <constraint firstItem="x4v-L8-jtF" firstAttribute="centerY" secondItem="3y8-eI-ViC" secondAttribute="centerY" id="zNv-7B-Vut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5dT-HC-3NB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="millsign.circle" catalog="system" id="BEK-Fi-NTl"/>
+                    <tabBarItem key="tabBarItem" title="Погода" image="weatherIco" id="BEK-Fi-NTl"/>
                     <connections>
                         <outlet property="cityLabel" destination="KXk-Cj-3Ah" id="ym8-6m-Ay1"/>
                         <outlet property="currentWeatherTextView" destination="kp2-Ev-OxJ" id="06v-ID-Mww"/>
+                        <outlet property="loadingSpinner" destination="3y8-eI-ViC" id="AkJ-Eq-UWC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O25-TY-TQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,6 +163,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="millsign.circle" catalog="system" width="64" height="60"/>
+        <image name="historyIco" width="595" height="842"/>
+        <image name="weatherIco" width="595" height="842"/>
     </resources>
 </document>

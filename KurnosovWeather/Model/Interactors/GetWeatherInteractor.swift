@@ -59,11 +59,13 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
             return self.weatherLoader.loadCurrentWeatherByLocation(location)
         }
         .do(onNext: { (measurement) in
+            print("<--eventChain-->interactor onnext")
             self.weatherSubject.onNext(measurement)
         }, onError: { (err) in
+            print("<--eventChain-->interactor onerror")
             self._repeatRequest()
         }, onCompleted: {
-            
+            print("<--eventChain-->interactor oncomplete")
         })
         .flatMap({ (measurement) -> Observable<Void> in
                 return self.db.saveMeasurement(measurement).andThen(.just(Void()))

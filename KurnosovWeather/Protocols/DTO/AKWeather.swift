@@ -9,5 +9,13 @@
 import Foundation
 
 public struct AKWeather {
+    public init (temperature: Double) {
+        self.temperature = temperature
+    }
+    
     public var temperature: Double
+    
+    public var weatherDescription: String?
+    public var windDescription: String?
+    
 }

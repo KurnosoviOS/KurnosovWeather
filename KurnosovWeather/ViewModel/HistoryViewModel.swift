@@ -41,7 +41,21 @@ public class HistoryViewModel: HistoryViewModelProtocol {
             for measurement in measurements {
                 let date = self.dateFormatter.string(from: measurement.date)
                 let city = measurement.city
-                let weatherDescription = "\(measurement.weather.temperature)"
+                var weatherDescription = "Температура \(measurement.weather.temperature) °C"
+                
+                var secondString = ""
+                if let weatherDescr = measurement.weather.weatherDescription {
+                    secondString = "\(weatherDescr)"
+                }
+                
+                if let windDescr = measurement.weather.windDescription {
+                    let wind = "ветер \(windDescr)"
+                    secondString += (secondString.isEmpty) ? "\(wind)" : ", \(wind)"
+                }
+                
+                if (!secondString.isEmpty) {
+                    weatherDescription += "\n\(secondString)"
+                }
                 
                 let state = HistoryCellViewState(date: date, city: city, weatherDescription: weatherDescription)
                 

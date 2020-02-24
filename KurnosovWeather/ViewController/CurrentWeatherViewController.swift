@@ -50,28 +50,20 @@ class CurrentWeatherViewController: UIViewController, DependencyClient {
             return
         }
         
+        self.loadingSpinner?.startAnimating()
         vm.onLoad()
     }
     
     private func _updateModel() {
-        #if DEBUG
-        #warning("todo")
-        //TODO: activityIndicator
-        #else
-        #error("todo")
-        #endif
+        self.loadingSpinner?.stopAnimating()
         
-        
-        #if DEBUG
-        #warning("todo")
-        //TODO: date
-        #else
-        #error("todo")
-        #endif
+        //TODO: Показывать где-то дату?
         
         let currentCity = self.viewModel?.currentCity ?? ""
         let currentWeather = self.viewModel?.currentWeather ?? ""
+        
         print("<--eventChain-->updateview")
+        
         self.cityLabel?.text = currentCity
         self.currentWeatherTextView?.text = currentWeather
     }
@@ -80,6 +72,14 @@ class CurrentWeatherViewController: UIViewController, DependencyClient {
     @IBOutlet weak var cityLabel: UILabel?
     
     @IBOutlet weak var currentWeatherTextView: UITextView?
+    
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView?
+    
+    @IBAction func reloadAction(_ sender: Any) {
+        self.loadingSpinner?.startAnimating()
+        self.viewModel?.reload()
+    }
+    
     
 }
 

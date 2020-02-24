@@ -16,27 +16,22 @@ public class CurrentWeatherViewModel: CurrentWeatherViewModelProtocol {
     }
     
     private func _handleNextMeasurement(measurement: AKWeatherMeasurement) {
-        #if DEBUG
-        #warning("todo")
         //TODO: перевести названия городов
-        #else
-        #error("todo")
-        #endif
         self.currentCity = measurement.city
-        #if DEBUG
-        #warning("todo")
-        //TODO: исправить формат
-        #else
-        #error("todo")
-        #endif
         
-        #if DEBUG
-        #warning("todo")
-        //TODO: проверить цельсии/фаренгейты
-        #else
-        #error("todo")
-        #endif
-        self.currentWeather = "\(measurement.weather.temperature) C"
+        let weather = measurement.weather
+        
+        var weatherText = "Температура: \(measurement.weather.temperature) °C"
+        
+        if let weatherDescr = weather.weatherDescription {
+            weatherText += "\n\(weatherDescr)"
+        }
+        
+        if let windDescr = weather.windDescription {
+            weatherText += "\nВетер: \(windDescr)"
+        }
+        
+        self.currentWeather = weatherText
     }
     
     public func onLoad() {

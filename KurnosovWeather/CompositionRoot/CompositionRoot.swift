@@ -28,15 +28,18 @@ class CompositionRoot {
     private var historyVM: HistoryViewModelProtocol!
     
     private func createDependencies() {
-        locationLoader = LocationLoader()
         #if DEBUG
         #warning ("test")
-        //weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
-        //weatherLoader = OpenWeatherMapWeatherLoader()
+        locationLoader = MockLocationLoader(permissionGranted: true)
         #else
         #error ("test")
         #endif
+        //locationLoader = LocationLoader()
+
+        //weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
+        //weatherLoader = OpenWeatherMapWeatherLoader()
         weatherLoader = WeatherbitWeatherLoader()
+        
         db = RealmDB()
         
         getWeatherInteractor = GetWeatherInteractor(weatherLoader: weatherLoader, locationLoader: locationLoader, db: db)

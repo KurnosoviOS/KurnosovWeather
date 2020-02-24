@@ -31,11 +31,12 @@ class CompositionRoot {
         locationLoader = LocationLoader()
         #if DEBUG
         #warning ("test")
-        weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
+        //weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
+        //weatherLoader = OpenWeatherMapWeatherLoader()
         #else
         #error ("test")
         #endif
-        //weatherLoader = OpenWeatherMapWeatherLoader()
+        weatherLoader = WeatherbitWeatherLoader()
         db = RealmDB()
         
         getWeatherInteractor = GetWeatherInteractor(weatherLoader: weatherLoader, locationLoader: locationLoader, db: db)

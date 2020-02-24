@@ -52,6 +52,8 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
             return
         }
         
+        print("<--eventChain-->interactor requestWeather")
+        
         self.currentWeatherRequest = self.locationLoader.requestCoordinates().take(1).flatMap { (location) -> Observable<AKWeatherMeasurement> in
             print("<--eventChain-->interactor getcoordinates")
             return self.weatherLoader.loadCurrentWeatherByLocation(location)
@@ -61,7 +63,7 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
         }, onError: { (err) in
             self._repeatRequest()
         }, onCompleted: {
-            self._repeatRequest()
+            
         })
         .flatMap({ (measurement) -> Observable<Void> in
                 return self.db.saveMeasurement(measurement).andThen(.just(Void()))

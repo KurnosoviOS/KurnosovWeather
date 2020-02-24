@@ -31,6 +31,9 @@ public class MockLocationLoader: LocationLoaderProtocol {
             if self.permissionGranted {
                 observer.on(.next(AKLocation(latitude: 56.8746, longitude: 60.5544)))
             }
+            else {
+                observer.onError(NSError(domain: "LocationLoader", code: 1, userInfo: [NSLocalizedDescriptionKey : "Permission for get location denied"]))
+            }
             
             return Disposables.create()
         }

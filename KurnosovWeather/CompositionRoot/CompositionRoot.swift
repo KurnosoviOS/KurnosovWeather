@@ -30,7 +30,7 @@ class CompositionRoot {
     private func createDependencies() {
         #if DEBUG
         #warning ("test")
-        locationLoader = MockLocationLoader(permissionGranted: true)
+        locationLoader = MockLocationLoader(permissionGranted: false)
         #else
         #error ("test")
         #endif

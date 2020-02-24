@@ -46,6 +46,16 @@ public class LocationLoader: NSObject, CLLocationManagerDelegate, LocationLoader
         self.locationManager.stopUpdatingLocation()
     }
     
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .denied, .restricted:
+            self.locationSubject.onError(NSError(domain: "LocationLoader", code: 1, userInfo: [NSLocalizedDescriptionKey : "Permission for get location denied"]))
+            break;
+        default:
+            break;
+        }
+    }
+    
     #if DEBUG
     #warning("todo")
     //TODO: обработать отказ в разрешении

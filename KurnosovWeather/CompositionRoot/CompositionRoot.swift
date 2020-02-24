@@ -36,7 +36,7 @@ class CompositionRoot {
         #error ("test")
         #endif
         //weatherLoader = OpenWeatherMapWeatherLoader()
-        db = MockDB()
+        db = RealmDB()
         
         getWeatherInteractor = GetWeatherInteractor(weatherLoader: weatherLoader, locationLoader: locationLoader, db: db)
         currentWeatherVM = CurrentWeatherViewModel(getWeatherInteractor: getWeatherInteractor)

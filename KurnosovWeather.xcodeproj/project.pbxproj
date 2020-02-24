@@ -30,7 +30,6 @@
 		84BE3B5323F59D690063F1E4 /* KurnosovWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3B5223F59D690063F1E4 /* KurnosovWeatherTests.swift */; };
 		84BE3B5E23F59D690063F1E4 /* KurnosovWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3B5D23F59D690063F1E4 /* KurnosovWeatherUITests.swift */; };
 		84D1F0C923F5C88200877FC2 /* WeatherLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0C823F5C88200877FC2 /* WeatherLoaderTest.swift */; };
-		84D1F0CF23F7FD6A00877FC2 /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0CE23F7FD6A00877FC2 /* LocationManagerTests.swift */; };
 		84D1F0D223F8190E00877FC2 /* GetWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0D123F8190E00877FC2 /* GetWeatherInteractor.swift */; };
 		84D1F0D623F8197600877FC2 /* GetWeatherInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0D523F8197600877FC2 /* GetWeatherInteractorProtocol.swift */; };
 		84D1F0D923F81A8400877FC2 /* AKWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0D823F81A8400877FC2 /* AKWeather.swift */; };
@@ -94,7 +93,6 @@
 		84BE3B5D23F59D690063F1E4 /* KurnosovWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurnosovWeatherUITests.swift; sourceTree = "<group>"; };
 		84BE3B5F23F59D690063F1E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D1F0C823F5C88200877FC2 /* WeatherLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoaderTest.swift; sourceTree = "<group>"; };
-		84D1F0CE23F7FD6A00877FC2 /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
 		84D1F0D123F8190E00877FC2 /* GetWeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherInteractor.swift; sourceTree = "<group>"; };
 		84D1F0D523F8197600877FC2 /* GetWeatherInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherInteractorProtocol.swift; sourceTree = "<group>"; };
 		84D1F0D823F81A8400877FC2 /* AKWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKWeather.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 		84BE3B5123F59D690063F1E4 /* KurnosovWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				84D1F0CD23F7FD4A00877FC2 /* LocationManager */,
 				84D1F0C723F5C83400877FC2 /* WeatherLoader */,
 				84BE3B5223F59D690063F1E4 /* KurnosovWeatherTests.swift */,
 				84BE3B5423F59D690063F1E4 /* Info.plist */,
@@ -274,14 +271,6 @@
 				84D1F0C823F5C88200877FC2 /* WeatherLoaderTest.swift */,
 			);
 			path = WeatherLoader;
-			sourceTree = "<group>";
-		};
-		84D1F0CD23F7FD4A00877FC2 /* LocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				84D1F0CE23F7FD6A00877FC2 /* LocationManagerTests.swift */,
-			);
-			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		84D1F0D023F818DC00877FC2 /* Model */ = {
@@ -584,7 +573,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D1F0CF23F7FD6A00877FC2 /* LocationManagerTests.swift in Sources */,
 				84BE3B5323F59D690063F1E4 /* KurnosovWeatherTests.swift in Sources */,
 				84D1F0C923F5C88200877FC2 /* WeatherLoaderTest.swift in Sources */,
 			);

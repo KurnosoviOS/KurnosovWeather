@@ -13,7 +13,10 @@ public class HistoryViewModel: HistoryViewModelProtocol {
     
     public init(interactor: GetMeasurementHistoryInteractorProtocol) {
         self._interactor = interactor
-        self.dateFormatter.dateFormat = "dd.MM.yy hh:mm"
+        
+        self.dateFormatter.dateFormat = "dd.MM.yy HH:mm"
+        self.dateFormatter.calendar = NSCalendar.current
+        self.dateFormatter.timeZone = TimeZone.current
     }
     
     private let _interactor: GetMeasurementHistoryInteractorProtocol

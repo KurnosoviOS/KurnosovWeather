@@ -83,4 +83,11 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
 
         //TODO: количество попыток, потом ошибка
     }
+    
+    #if DEBUG
+    #warning("todo")
+    //TODO: реагировать на выход из бэкграунда
+    #else
+    #error("todo")
+    #endif
 }

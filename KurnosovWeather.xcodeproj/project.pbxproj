@@ -276,7 +276,7 @@
 		84D1F0D023F818DC00877FC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84D1F0DF23F8345500877FC2 /* Dependencies */,
+				84D1F0DF23F8345500877FC2 /* DataLayer */,
 				84D1F0DE23F8343400877FC2 /* Interactors */,
 			);
 			path = Model;
@@ -297,7 +297,7 @@
 			children = (
 				8435A088240047BF001D2592 /* ViewModel */,
 				84D1F0E123F8355100877FC2 /* Interactors */,
-				84D1F0E023F8354100877FC2 /* Dependencies */,
+				84D1F0E023F8354100877FC2 /* DataLayer */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,24 +322,24 @@
 			path = Interactors;
 			sourceTree = "<group>";
 		};
-		84D1F0DF23F8345500877FC2 /* Dependencies */ = {
+		84D1F0DF23F8345500877FC2 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
 				84D1F0E223F8359D00877FC2 /* LocationLoader.swift */,
 				84D1F0E323F8359D00877FC2 /* WeatherLoader.swift */,
 				8435A08124001F92001D2592 /* RealmDB.swift */,
 			);
-			path = Dependencies;
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
-		84D1F0E023F8354100877FC2 /* Dependencies */ = {
+		84D1F0E023F8354100877FC2 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
 				84D1F0E623F835B900877FC2 /* LocationLoaderProtocol.swift */,
 				84D1F0E823F8360C00877FC2 /* WeatherLoaderProtocol.swift */,
 				84D1F0EA23F8366000877FC2 /* DBProtocol.swift */,
 			);
-			path = Dependencies;
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
 		84D1F0E123F8355100877FC2 /* Interactors */ = {

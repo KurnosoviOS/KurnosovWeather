@@ -54,6 +54,21 @@ class CurrentWeatherViewController: UIViewController, DependencyClient {
     }
     
     private func _updateModel() {
+        #if DEBUG
+        #warning("todo")
+        //TODO: activityIndicator
+        #else
+        #error("todo")
+        #endif
+        
+        
+        #if DEBUG
+        #warning("todo")
+        //TODO: date
+        #else
+        #error("todo")
+        #endif
+        
         let currentCity = self.viewModel?.currentCity ?? ""
         let currentWeather = self.viewModel?.currentWeather ?? ""
         print("<--eventChain-->updateview")

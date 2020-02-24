@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XUf-AE-nWQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,20 +8,127 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--История-->
+        <scene sceneID="DOn-Fr-kN5">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KurnosovWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController title="История" id="QrK-U5-zfF" customClass="WeatherHistoryViewController" customModule="KurnosovWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UAX-n7-qon">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voo-xx-3gE">
+                                <rect key="frame" x="157" y="45" width="117" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3zI-n6-Jz6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Очистить"/>
+                                <connections>
+                                    <action selector="clearAction:" destination="QrK-U5-zfF" eventType="touchUpInside" id="Ac6-wE-v4S"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-3U-gAq">
+                                <rect key="frame" x="20" y="98" width="374" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="7ST-3U-gAq" firstAttribute="bottom" secondItem="wX1-Xs-cON" secondAttribute="bottom" id="7Zl-KK-Kp2"/>
+                            <constraint firstItem="wX1-Xs-cON" firstAttribute="trailing" secondItem="Voo-xx-3gE" secondAttribute="trailing" constant="140" id="IgB-Nj-yP9"/>
+                            <constraint firstItem="Voo-xx-3gE" firstAttribute="leading" secondItem="wX1-Xs-cON" secondAttribute="leading" constant="157" id="PP3-bX-rpl"/>
+                            <constraint firstItem="7ST-3U-gAq" firstAttribute="top" secondItem="Voo-xx-3gE" secondAttribute="bottom" constant="8" id="QT7-ys-5HF"/>
+                            <constraint firstItem="Voo-xx-3gE" firstAttribute="top" secondItem="wX1-Xs-cON" secondAttribute="top" constant="1" id="TPS-Az-MCO"/>
+                            <constraint firstItem="wX1-Xs-cON" firstAttribute="trailing" secondItem="7ST-3U-gAq" secondAttribute="trailing" constant="20" id="ppM-me-MfT"/>
+                            <constraint firstItem="7ST-3U-gAq" firstAttribute="leading" secondItem="wX1-Xs-cON" secondAttribute="leading" constant="20" id="rL7-MI-Z5i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wX1-Xs-cON"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="xxZ-VV-jgW"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="7ST-3U-gAq" id="jDS-5P-QVC"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7D-SE-hPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="73"/>
+            <point key="canvasLocation" x="815.94202898550736" y="-54.241071428571423"/>
+        </scene>
+        <!--Погода-->
+        <scene sceneID="KUr-DF-8pS">
+            <objects>
+                <viewController storyboardIdentifier="weatherViewController" title="Погода" id="csX-8Q-TaX" customClass="CurrentWeatherViewController" customModule="KurnosovWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KTA-Xk-GOW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Город:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gt-kr-Wsn">
+                                <rect key="frame" x="50" y="94" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXk-Cj-3Ah">
+                                <rect key="frame" x="133" y="115" width="231" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-GA-FV4">
+                                <rect key="frame" x="186" y="249" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kp2-Ev-OxJ">
+                                <rect key="frame" x="87" y="278" width="240" height="353"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="baseline" secondItem="KXk-Cj-3Ah" secondAttribute="baseline" id="AId-gG-Pmf"/>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="top" secondItem="5dT-HC-3NB" secondAttribute="top" constant="50" id="VfK-Vy-CNu"/>
+                            <constraint firstItem="5dT-HC-3NB" firstAttribute="trailing" secondItem="KXk-Cj-3Ah" secondAttribute="trailing" constant="50" id="iZe-DN-py1"/>
+                            <constraint firstItem="KXk-Cj-3Ah" firstAttribute="leading" secondItem="1Gt-kr-Wsn" secondAttribute="trailing" constant="30" id="qMa-ew-RO5"/>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="rkN-SD-DO2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5dT-HC-3NB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" image="millsign.circle" catalog="system" id="BEK-Fi-NTl"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="KXk-Cj-3Ah" id="ym8-6m-Ay1"/>
+                        <outlet property="currentWeatherTextView" destination="kp2-Ev-OxJ" id="06v-ID-Mww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O25-TY-TQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.94202898550736" y="-703.125"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gRc-vY-iC0">
+            <objects>
+                <tabBarController id="XUf-AE-nWQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZDn-f9-ZBT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="csX-8Q-TaX" kind="relationship" relationship="viewControllers" id="2Ga-GQ-M8u"/>
+                        <segue destination="QrK-U5-zfF" kind="relationship" relationship="viewControllers" id="OXf-6v-g6Z"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B6w-iA-9Ls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="-379"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="millsign.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

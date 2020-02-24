@@ -53,29 +53,34 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
         }
         
         self.currentWeatherRequest = self.locationLoader.requestCoordinates().take(1).flatMap { (location) -> Observable<AKWeatherMeasurement> in
-            self.weatherLoader.loadCurrentWeatherByLocation(location)
+            print("<--eventChain-->interactor getcoordinates")
+            return self.weatherLoader.loadCurrentWeatherByLocation(location)
         }
-        .subscribe { (event) in
-            self.weatherSubject.on(event)
-            
-            if let measurement = event.element {
-                let _ = self.db.saveMeasurement(measurement)
-                
+        .do(onNext: { (measurement) in
+            self.weatherSubject.onNext(measurement)
+        }, onError: { (err) in
+            self._repeatRequest()
+        }, onCompleted: {
+            self._repeatRequest()
+        })
+        .flatMap({ (measurement) -> Observable<Void> in
+                return self.db.saveMeasurement(measurement).andThen(.just(Void()))
+            })
+        .subscribe({ (event) in
                 if let currentRequest = self.currentWeatherRequest {
                     currentRequest.dispose()
                     self.currentWeatherRequest = nil
                 }
-            }
-            else {
-                #if DEBUG
-                #warning("todo")
-                //TODO: Повторить запрос через интервал
-                #else
-                #error("todo")
-                #endif
-            }
-        }
+            })
+          
     }
     
-    
+    private func _repeatRequest () {
+        //повторим запрос
+        DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 0.2) {
+            self.requestWeather()
+        }
+
+        //TODO: количество попыток, потом ошибка
+    }
 }

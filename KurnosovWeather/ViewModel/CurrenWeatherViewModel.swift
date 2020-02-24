@@ -9,14 +9,10 @@
 import Foundation
 import RxSwift
 
-public class CurrenWeatherViewModel {
+public class CurrentWeatherViewModel: CurrentWeatherViewModelProtocol {
     
     public init (getWeatherInteractor: GetWeatherInteractorProtocol) {
         self._getWeatherInteractor = getWeatherInteractor
-        #error("нужен лэйзи лоадинг")
-        self.updateObservable = getWeatherInteractor.getWeatherObservable().subscribeOn(self._mainThreadScheduler).do(onNext: { (measurement) in
-            
-        })
     }
     
     private func _handleNextMeasurement(measurement: AKWeatherMeasurement) {
@@ -55,7 +51,12 @@ public class CurrenWeatherViewModel {
     public var currentCity = ""
     public var currentWeather = ""
     
-    public var updateObservable: Observable<AKWeatherMeasurement>
+    public lazy var updateObservable: Observable<Void> = self._getWeatherInteractor.getWeatherObservable().observeOn(self._mainThreadScheduler).do(onNext: { (measurement) in
+        self._handleNextMeasurement(measurement: measurement)
+    }).map { (measurement) -> Void in
+        print("<--eventChain-->viewModel event")
+        return
+    }
     
     private var _mainThreadScheduler = MainScheduler()
     

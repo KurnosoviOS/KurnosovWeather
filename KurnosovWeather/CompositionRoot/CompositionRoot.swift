@@ -20,6 +20,7 @@ class CompositionRoot {
     private var locationLoader: LocationLoaderProtocol!
     private var weatherLoader: WeatherLoaderProtocol!
     private var db: DBProtocol!
+    private var appStateHandler: AppStateHandlerProtocol!
     
     private var getWeatherInteractor: GetWeatherInteractorProtocol!
     private var currentWeatherVM: CurrentWeatherViewModelProtocol!
@@ -37,8 +38,14 @@ class CompositionRoot {
         
         db = RealmDB()
         
-        getWeatherInteractor = GetWeatherInteractor(weatherLoader: weatherLoader, locationLoader: locationLoader, db: db)
+        appStateHandler = AppStateHandler()
+        
+        
+        
+        getWeatherInteractor = GetWeatherInteractor(weatherLoader: weatherLoader, locationLoader: locationLoader, db: db, appStateHandler: appStateHandler)
         currentWeatherVM = CurrentWeatherViewModel(getWeatherInteractor: getWeatherInteractor)
+        
+        
         
         getHistoryInteractor = GetMeasurementHistoryInteractor(db: db)
         historyVM = HistoryViewModel(interactor: getHistoryInteractor)

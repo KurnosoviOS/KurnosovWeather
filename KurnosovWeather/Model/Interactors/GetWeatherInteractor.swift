@@ -11,15 +11,17 @@ import RxSwift
 
 public class GetWeatherInteractor: GetWeatherInteractorProtocol {
     
-    public init (weatherLoader: WeatherLoaderProtocol, locationLoader: LocationLoaderProtocol, db: DBProtocol) {
+    public init (weatherLoader: WeatherLoaderProtocol, locationLoader: LocationLoaderProtocol, db: DBProtocol, appStateHandler: AppStateHandlerProtocol) {
         self.weatherLoader = weatherLoader
         self.locationLoader = locationLoader
         self.db = db
+        self.appStateHandler = appStateHandler
     }
     
     private let weatherLoader: WeatherLoaderProtocol
     private let locationLoader: LocationLoaderProtocol
     private let db: DBProtocol
+    private let appStateHandler: AppStateHandlerProtocol
     
     private let weatherSubject = ReplaySubject<WeatherMeasurementEvent>.create(bufferSize: 1)
     
@@ -40,6 +42,8 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
     private var currentWeatherRequest: Disposable?
     
     public func requestWeather() {
+        
+        self._subscribeToAppState()
         
         //Не повторяем запросы
         if (self.currentWeatherRequest != nil) {
@@ -80,6 +84,7 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
                 return self.db.saveMeasurement(measurement).andThen(.just(Void()))
             })
         .subscribe({ (event) in
+            self._requestCount = 0
                 if let currentRequest = self.currentWeatherRequest {
                     currentRequest.dispose()
                     self.currentWeatherRequest = nil
@@ -110,10 +115,19 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
         return true
     }
     
-    #if DEBUG
-    #warning("todo")
-    //TODO: реагировать на выход из бэкграунда
-    #else
-    #error("todo")
-    #endif
+    private let _disposeBag = DisposeBag()
+    private var _wasSubscribedToAppState = false;
+    
+    private func _subscribeToAppState() {
+        if (self._wasSubscribedToAppState) {
+            return
+        }
+        self._wasSubscribedToAppState = true;
+        
+        self.appStateHandler.getAppStateObservable().subscribe { (event) in
+            if let state = event.element, state == .active {
+                self.requestWeather()
+            }
+        }.disposed(by: self._disposeBag)
+    }
 }

@@ -29,7 +29,13 @@ class CompositionRoot {
     private var historyVM: HistoryViewModelProtocol!
     
     private func createDependencies() {
+        #if targetEnvironment(simulator)
+        locationLoader = MockLocationLoader(permissionGranted: true)
+        #else
         locationLoader = LocationLoader()
+        #endif
+        
+        /*
         #if DEBUG
         #warning ("test")
         locationLoader = MockLocationLoader(permissionGranted: true)
@@ -37,7 +43,7 @@ class CompositionRoot {
         #else
         #error ("test")
         #endif
-        
+        */
 
         //weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
         //weatherLoader = OpenWeatherMapWeatherLoader()

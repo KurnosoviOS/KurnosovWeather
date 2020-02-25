@@ -21,13 +21,7 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
     private let locationLoader: LocationLoaderProtocol
     private let db: DBProtocol
     
-    private let weatherSubject = ReplaySubject<AKWeatherMeasurement>.create(bufferSize: 1)
-    
-    private var noDistinctWeatherSubject: Observable<AKWeatherMeasurement> {
-        return self.weatherSubject.distinctUntilChanged { (last, current) -> Bool in
-            return current.date.compare(last.date) != .orderedSame
-        }
-    }
+    private let weatherSubject = ReplaySubject<WeatherMeasurementEvent>.create(bufferSize: 1)
     
     private let citySubject = BehaviorSubject<String>(value: "Yekaterinburg")
     
@@ -35,7 +29,7 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
         self.locationLoader.requestPermission()
     }
     
-    public func getWeatherObservable() -> Observable<AKWeatherMeasurement> {
+    public func getWeatherObservable() -> Observable<WeatherMeasurementEvent> {
         return weatherSubject
     }
     
@@ -54,16 +48,31 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
         
         print("<--eventChain-->interactor requestWeather")
         
-        self.currentWeatherRequest = self.locationLoader.requestCoordinates().take(1).flatMap { (location) -> Observable<AKWeatherMeasurement> in
+        self.currentWeatherRequest = self.locationLoader.requestCoordinates().take(1).catchError({ (err) -> Observable<AKLocation> in
+            //перебросим ошибку, заменив домен на внутренний
+            try self._handleLocationError(error: err)
+        }).flatMap { (location) -> Observable<AKWeatherMeasurement> in
             print("<--eventChain-->interactor getcoordinates")
             return self.weatherLoader.loadCurrentWeatherByLocation(location)
         }
         .do(onNext: { (measurement) in
             print("<--eventChain-->interactor onnext")
-            self.weatherSubject.onNext(measurement)
+            self.weatherSubject.onNext(.success(measurement))
         }, onError: { (err) in
-            print("<--eventChain-->interactor onerror")
-            self._repeatRequest()
+            let error = err as NSError
+            
+            print("<--eventChain-->interactor onerror \(error.domain)")
+            //ошибки передаем как next, чтобы не завершить Observable
+            
+            //Если получили ошибку координат, выбросим её
+            if (error.domain == "location") {
+                self.weatherSubject.onNext(.error(error))
+                return
+            }
+            
+            if !self._repeatRequest() {
+                self.weatherSubject.onNext(.error(error))
+            }
         }, onCompleted: {
             print("<--eventChain-->interactor oncomplete")
         })
@@ -79,13 +88,26 @@ public class GetWeatherInteractor: GetWeatherInteractorProtocol {
           
     }
     
-    private func _repeatRequest () {
+    private func _handleLocationError(error: Error) throws -> Observable<AKLocation> {
+        throw NSError(domain: "location", code: 1, userInfo: [NSLocalizedDescriptionKey : error.localizedDescription])
+    }
+    
+    private var _requestCount = 0
+    private let _maxRequestCount = 10
+    
+    private func _repeatRequest () -> Bool {
+        self._requestCount += 1;
+        //Не превысили ли лимит попыток?
+        if (self._requestCount > self._maxRequestCount) {
+            return false;
+        }
+        
         //повторим запрос
         DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 0.2) {
             self.requestWeather()
         }
 
-        //TODO: количество попыток, потом ошибка
+        return true
     }
     
     #if DEBUG

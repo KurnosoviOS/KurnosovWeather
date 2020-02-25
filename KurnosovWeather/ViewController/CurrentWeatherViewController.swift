@@ -36,9 +36,11 @@ class CurrentWeatherViewController: UIViewController, DependencyClient {
             return
         }
         
-        vm.updateObservable.subscribe(onNext: {
-            self._updateModel()
-            }, onError: { (err) in }, onCompleted: {}
+        vm.updateObservable.subscribe(onNext: { viewState in
+            self._handleEvent(event: viewState)
+            }, onError: { (err) in
+                self._showError(err)
+            }, onCompleted: {}
         ).disposed(by: disposeBag)
         
     }
@@ -68,6 +70,31 @@ class CurrentWeatherViewController: UIViewController, DependencyClient {
         self.currentWeatherTextView?.text = currentWeather
     }
 
+    private func _handleEvent(event: CurrentWeatherViewState) {
+        switch event {
+        case .success:
+            self._updateModel()
+            break;
+        case .error(error: let err):
+            self._showError(err)
+            break;
+        default:
+            self._updateModel()
+        }
+    }
+    
+    private func _showError(_ error: Error) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
+             
+            let okAction =  UIAlertAction(title: "Ok", style: .default) { _ in }
+                    
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
 
     @IBOutlet weak var cityLabel: UILabel?
     

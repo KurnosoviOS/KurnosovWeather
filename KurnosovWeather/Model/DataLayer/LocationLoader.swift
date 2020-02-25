@@ -56,10 +56,4 @@ public class LocationLoader: NSObject, CLLocationManagerDelegate, LocationLoader
         }
     }
     
-    #if DEBUG
-    #warning("todo")
-    //TODO: обработать отказ в разрешении
-    #else
-    #error("todo")
-    #endif
 }

@@ -15,6 +15,16 @@ public class CurrentWeatherViewModel: CurrentWeatherViewModelProtocol {
         self._getWeatherInteractor = getWeatherInteractor
     }
     
+    private func _handleEvent(_ event: WeatherMeasurementEvent) {
+        switch event {
+        case .success(let measurement):
+            self._handleNextMeasurement(measurement: measurement)
+            break;
+        default:
+            break;
+        }
+    }
+    
     private func _handleNextMeasurement(measurement: AKWeatherMeasurement) {
         //TODO: перевести названия городов
         self.currentCity = measurement.city
@@ -46,11 +56,23 @@ public class CurrentWeatherViewModel: CurrentWeatherViewModelProtocol {
     public var currentCity = ""
     public var currentWeather = ""
     
-    public lazy var updateObservable: Observable<Void> = self._getWeatherInteractor.getWeatherObservable().observeOn(self._mainThreadScheduler).do(onNext: { (measurement) in
-        self._handleNextMeasurement(measurement: measurement)
-    }).map { (measurement) -> Void in
+    public lazy var updateObservable: Observable<CurrentWeatherViewState> = self._getWeatherInteractor.getWeatherObservable().observeOn(self._mainThreadScheduler).do(onNext: { (event) in
+        self._handleEvent(event)
+    }, onError: { err in
+        print("<--eventChain-->viewModel error")
+        throw err
+    })
+        .map { (event) -> CurrentWeatherViewState in
         print("<--eventChain-->viewModel event")
-        return
+            switch event {
+            case .success(let _):
+                return .success
+            case .error(let err):
+                return.error(error: err)
+            default:
+                return .success
+            }
+            return .success
     }
     
     private var _mainThreadScheduler = MainScheduler()

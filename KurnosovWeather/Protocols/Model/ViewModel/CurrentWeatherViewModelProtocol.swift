@@ -16,5 +16,5 @@ public protocol CurrentWeatherViewModelProtocol {
     var currentCity: String { get }
     var currentWeather: String { get }
     
-    var updateObservable: Observable<Void> { get }
+    var updateObservable: Observable<CurrentWeatherViewState> { get }
 }

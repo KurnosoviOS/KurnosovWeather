@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol GetWeatherInteractorProtocol {
     func requestLocationPermission()
-    func getWeatherObservable() -> Observable<AKWeatherMeasurement>
+    func getWeatherObservable() -> Observable<WeatherMeasurementEvent>
     func getCityObservable() -> Observable<String>
     func requestWeather()
 }

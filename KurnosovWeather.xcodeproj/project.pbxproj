@@ -34,6 +34,7 @@
 		84C22010240492D600A543A1 /* CurrentWeatherViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2200F240492D600A543A1 /* CurrentWeatherViewState.swift */; };
 		84C22012240496AC00A543A1 /* WeatherMeasurementEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C22011240496AC00A543A1 /* WeatherMeasurementEvent.swift */; };
 		84C2201424049FE200A543A1 /* AppStateHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2201324049FE200A543A1 /* AppStateHandlerProtocol.swift */; };
+		84C220162404A1C400A543A1 /* AppStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C220152404A1C400A543A1 /* AppStateHandler.swift */; };
 		84D1F0C923F5C88200877FC2 /* WeatherLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0C823F5C88200877FC2 /* WeatherLoaderTest.swift */; };
 		84D1F0D223F8190E00877FC2 /* GetWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0D123F8190E00877FC2 /* GetWeatherInteractor.swift */; };
 		84D1F0D623F8197600877FC2 /* GetWeatherInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1F0D523F8197600877FC2 /* GetWeatherInteractorProtocol.swift */; };
@@ -102,6 +103,7 @@
 		84C2200F240492D600A543A1 /* CurrentWeatherViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewState.swift; sourceTree = "<group>"; };
 		84C22011240496AC00A543A1 /* WeatherMeasurementEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMeasurementEvent.swift; sourceTree = "<group>"; };
 		84C2201324049FE200A543A1 /* AppStateHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateHandlerProtocol.swift; sourceTree = "<group>"; };
+		84C220152404A1C400A543A1 /* AppStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateHandler.swift; sourceTree = "<group>"; };
 		84D1F0C823F5C88200877FC2 /* WeatherLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoaderTest.swift; sourceTree = "<group>"; };
 		84D1F0D123F8190E00877FC2 /* GetWeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherInteractor.swift; sourceTree = "<group>"; };
 		84D1F0D523F8197600877FC2 /* GetWeatherInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				84B972112404555F00C220D1 /* WeatherLoaders */,
 				84D1F0E223F8359D00877FC2 /* LocationLoader.swift */,
 				8435A08124001F92001D2592 /* RealmDB.swift */,
+				84C220152404A1C400A543A1 /* AppStateHandler.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				84D1F0E523F8359D00877FC2 /* OpenWeatherMapWeatherLoader.swift in Sources */,
 				845539042403B28A006EE3E7 /* GetMeasurementHistoryInteractor.swift in Sources */,
 				84BE3B3E23F59D650063F1E4 /* SceneDelegate.swift in Sources */,
+				84C220162404A1C400A543A1 /* AppStateHandler.swift in Sources */,
 				8435A08A240047EA001D2592 /* CurrentWeatherViewModelProtocol.swift in Sources */,
 				84C2201424049FE200A543A1 /* AppStateHandlerProtocol.swift in Sources */,
 				84D1F0E423F8359D00877FC2 /* LocationLoader.swift in Sources */,

@@ -29,8 +29,15 @@ class CompositionRoot {
     private var historyVM: HistoryViewModelProtocol!
     
     private func createDependencies() {
-        //locationLoader = MockLocationLoader(permissionGranted: false)
         locationLoader = LocationLoader()
+        #if DEBUG
+        #warning ("test")
+        locationLoader = MockLocationLoader(permissionGranted: true)
+        //locationLoader = MockLocationLoader(permissionGranted: false)
+        #else
+        #error ("test")
+        #endif
+        
 
         //weatherLoader = MockWeatherLoader(attempts: 1, requestDuration: 0.1)
         //weatherLoader = OpenWeatherMapWeatherLoader()

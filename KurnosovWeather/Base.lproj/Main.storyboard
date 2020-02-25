@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XUf-AE-nWQ">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController title="История" id="QrK-U5-zfF" customClass="WeatherHistoryViewController" customModule="KurnosovWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UAX-n7-qon">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voo-xx-3gE">
-                                <rect key="frame" x="157" y="45" width="117" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voo-xx-3gE">
+                                <rect key="frame" x="20" y="45" width="374" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="3zI-n6-Jz6"/>
                                 </constraints>
@@ -28,23 +28,23 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-3U-gAq">
-                                <rect key="frame" x="20" y="98" width="374" height="715"/>
+                                <rect key="frame" x="20" y="54" width="280" height="465"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Voo-xx-3gE" firstAttribute="width" secondItem="wX1-Xs-cON" secondAttribute="width" id="2at-W8-wPc"/>
                             <constraint firstItem="7ST-3U-gAq" firstAttribute="bottom" secondItem="wX1-Xs-cON" secondAttribute="bottom" id="7Zl-KK-Kp2"/>
-                            <constraint firstItem="wX1-Xs-cON" firstAttribute="trailing" secondItem="Voo-xx-3gE" secondAttribute="trailing" constant="140" id="IgB-Nj-yP9"/>
-                            <constraint firstItem="Voo-xx-3gE" firstAttribute="leading" secondItem="wX1-Xs-cON" secondAttribute="leading" constant="157" id="PP3-bX-rpl"/>
                             <constraint firstItem="7ST-3U-gAq" firstAttribute="top" secondItem="Voo-xx-3gE" secondAttribute="bottom" constant="8" id="QT7-ys-5HF"/>
                             <constraint firstItem="Voo-xx-3gE" firstAttribute="top" secondItem="wX1-Xs-cON" secondAttribute="top" constant="1" id="TPS-Az-MCO"/>
                             <constraint firstItem="wX1-Xs-cON" firstAttribute="trailing" secondItem="7ST-3U-gAq" secondAttribute="trailing" constant="20" id="ppM-me-MfT"/>
+                            <constraint firstItem="Voo-xx-3gE" firstAttribute="centerX" secondItem="wX1-Xs-cON" secondAttribute="centerX" id="qHI-k9-p36"/>
                             <constraint firstItem="7ST-3U-gAq" firstAttribute="leading" secondItem="wX1-Xs-cON" secondAttribute="leading" constant="20" id="rL7-MI-Z5i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wX1-Xs-cON"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="История" image="historyIco" id="xxZ-VV-jgW"/>
+                    <tabBarItem key="tabBarItem" title="" image="historyIco" id="xxZ-VV-jgW"/>
                     <connections>
                         <outlet property="historyTableView" destination="7ST-3U-gAq" id="jDS-5P-QVC"/>
                     </connections>
@@ -58,11 +58,11 @@
             <objects>
                 <viewController storyboardIdentifier="weatherViewController" title="Погода" id="csX-8Q-TaX" customClass="CurrentWeatherViewController" customModule="KurnosovWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTA-Xk-GOW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="Город:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gt-kr-Wsn">
-                                <rect key="frame" x="50" y="94" width="100" height="36"/>
+                                <rect key="frame" x="30" y="50" width="100" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ifP-oo-nvo"/>
                                 </constraints>
@@ -71,19 +71,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXk-Cj-3Ah">
-                                <rect key="frame" x="180" y="112" width="184" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="145" y="68" width="145" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текущая погода:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-GA-FV4">
-                                <rect key="frame" x="94" y="200" width="226" height="36"/>
+                                <rect key="frame" x="30" y="156" width="226" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kp2-Ev-OxJ">
-                                <rect key="frame" x="50" y="246" width="314" height="385"/>
+                                <rect key="frame" x="50" y="202" width="220" height="385"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="385" id="HJj-yR-z6U"/>
@@ -93,7 +93,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3y8-eI-ViC">
-                                <rect key="frame" x="182" y="142" width="50" height="50"/>
+                                <rect key="frame" x="162" y="98" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ivd-3z-E8m"/>
                                     <constraint firstAttribute="width" constant="50" id="y4g-Fy-xfx"/>
@@ -101,7 +101,7 @@
                                 <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4v-L8-jtF">
-                                <rect key="frame" x="50" y="143" width="133" height="48"/>
+                                <rect key="frame" x="30" y="99" width="133" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Обновить"/>
                                 <connections>
@@ -115,24 +115,21 @@
                             <constraint firstItem="1Gt-kr-Wsn" firstAttribute="centerY" secondItem="KXk-Cj-3Ah" secondAttribute="centerY" id="AId-gG-Pmf"/>
                             <constraint firstItem="5dT-HC-3NB" firstAttribute="trailing" secondItem="kp2-Ev-OxJ" secondAttribute="trailing" constant="50" id="LST-U2-Hfg"/>
                             <constraint firstItem="kp2-Ev-OxJ" firstAttribute="top" secondItem="Bh3-GA-FV4" secondAttribute="bottom" constant="10" id="Ugf-Of-lct"/>
-                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="top" secondItem="5dT-HC-3NB" secondAttribute="top" constant="50" id="VfK-Vy-CNu"/>
                             <constraint firstItem="KXk-Cj-3Ah" firstAttribute="centerY" secondItem="1Gt-kr-Wsn" secondAttribute="centerY" id="Xfk-fH-ub4"/>
-                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="abE-VU-enW"/>
                             <constraint firstItem="Bh3-GA-FV4" firstAttribute="top" secondItem="3y8-eI-ViC" secondAttribute="bottom" constant="8" id="dzH-aD-Esf"/>
-                            <constraint firstAttribute="trailing" secondItem="KXk-Cj-3Ah" secondAttribute="trailing" constant="50" id="h0R-pe-Q6F"/>
-                            <constraint firstItem="5dT-HC-3NB" firstAttribute="trailing" secondItem="KXk-Cj-3Ah" secondAttribute="trailing" constant="50" id="iZe-DN-py1"/>
+                            <constraint firstAttribute="trailing" secondItem="KXk-Cj-3Ah" secondAttribute="trailing" constant="30" id="h0R-pe-Q6F"/>
                             <constraint firstItem="Bh3-GA-FV4" firstAttribute="top" secondItem="1Gt-kr-Wsn" secondAttribute="bottom" constant="70" id="loc-49-dn7"/>
-                            <constraint firstItem="x4v-L8-jtF" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="mHp-8b-vcJ"/>
-                            <constraint firstItem="KXk-Cj-3Ah" firstAttribute="leading" secondItem="1Gt-kr-Wsn" secondAttribute="trailing" constant="30" id="qMa-ew-RO5"/>
-                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="50" id="rkN-SD-DO2"/>
+                            <constraint firstItem="x4v-L8-jtF" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="30" id="mHp-8b-vcJ"/>
+                            <constraint firstItem="KXk-Cj-3Ah" firstAttribute="leading" secondItem="1Gt-kr-Wsn" secondAttribute="trailing" constant="15" id="qMa-ew-RO5"/>
+                            <constraint firstItem="1Gt-kr-Wsn" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="30" id="rkN-SD-DO2"/>
                             <constraint firstItem="1Gt-kr-Wsn" firstAttribute="top" secondItem="5dT-HC-3NB" secondAttribute="top" constant="50" id="rvS-fV-ocO"/>
-                            <constraint firstItem="Bh3-GA-FV4" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="94" id="vsL-SL-a2l"/>
+                            <constraint firstItem="Bh3-GA-FV4" firstAttribute="leading" secondItem="5dT-HC-3NB" secondAttribute="leading" constant="30" id="vsL-SL-a2l"/>
                             <constraint firstItem="3y8-eI-ViC" firstAttribute="leading" secondItem="x4v-L8-jtF" secondAttribute="trailing" constant="-1" id="zLF-HL-phw"/>
                             <constraint firstItem="x4v-L8-jtF" firstAttribute="centerY" secondItem="3y8-eI-ViC" secondAttribute="centerY" id="zNv-7B-Vut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5dT-HC-3NB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Погода" image="weatherIco" id="BEK-Fi-NTl"/>
+                    <tabBarItem key="tabBarItem" title="" image="weatherIco" id="BEK-Fi-NTl"/>
                     <connections>
                         <outlet property="cityLabel" destination="KXk-Cj-3Ah" id="ym8-6m-Ay1"/>
                         <outlet property="currentWeatherTextView" destination="kp2-Ev-OxJ" id="06v-ID-Mww"/>
@@ -147,7 +144,7 @@
         <scene sceneID="gRc-vY-iC0">
             <objects>
                 <tabBarController id="XUf-AE-nWQ" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZDn-f9-ZBT">
+                    <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="ZDn-f9-ZBT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
